@@ -48,7 +48,9 @@ function showMovies(moviesList){
 // Funcion para conseguir los datos del API
 async function getData() {
     try{
-        let allDataRequest = `http://www.omdbapi.com/?apikey=a31f5235&s={${movie}}`;
+        const corsProxy = "https://cors-anywhere.herokuapp.com/";
+        let allDataRequest = `${corsProxy}https://www.omdbapi.com/?apikey=a31f5235&s=${movie}`;
+
         const evaluar = await fetch(allDataRequest);
         const response = await evaluar.json()
 
